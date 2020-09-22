@@ -31,7 +31,7 @@ Makefile.dependencies:: $(SRCS) $(HDRS)
 -include Makefile.dependencies
 
 clean : 
-	/bin/rm -f *.o a.out core $(PROGS) Makefile.dependencies
+	/bin/rm -f *.o a.out core $(PROGS) Makefile.dependencies vgcore.*
 
 TAGS : $(SRCS) $(HDRS)
 	etags -t $(SRCS) $(HDRS)
