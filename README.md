@@ -28,7 +28,7 @@ chmod u+x rsg-sample*
 2. run: `./rsg data/bionic.g`
 
 3. test
-**გაითვალისწინეთ, რომ ტესტერებში სასვენი ნიშნების წინ აუცილებელია იყოს `space`**
+**გაითვალისწინეთ, რომ ტესტერებისთვის სასვენი ნიშნების წინ აუცილებელია იყოს `space`**
 ```sh
 ./rsgChecker32 ./rsg data/bionic.g
 ./rsgChecker64 ./rsg data/bionic.g
