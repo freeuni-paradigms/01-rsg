@@ -46,3 +46,10 @@ one line
 ```sh
 for i in $(/bin/ls data); do echo $i; ./rsgChecker64 ./rsg data/$i; done
 ```
+
+## ქულა
+```sh
+for i in $(/bin/ls data); do echo $i; ./rsgChecker64 ./rsg data/$i; done >> output.txt
+cat output.txt | grep "SUCCESSFULY" | wc -l
+```
+

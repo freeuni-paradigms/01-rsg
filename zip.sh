@@ -7,7 +7,7 @@ fi
 config_file=~/.config/paradigms
 
 if [[ -f "$config_file" ]]; then
-	source ~/.config/paradigms
+	source $config_file
 fi
 
 if [[ -z "$emailid" ]]; then
