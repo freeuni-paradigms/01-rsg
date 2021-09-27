@@ -1,40 +1,37 @@
 ﻿## დავალების ატვირთვა
 პირველ რიგში ცადეთ ცვლილებები დააკომიტოთ Github-ზე თქვენი კლასრუმის რეპოზიტორიაში.  
 მაგრამ რადგან ჯერ git-ის გამოყენებაში არ ხართ გაწაფული, შეგიძლიათ პირველი დავალება ატვირთოთ Google კლასრუმზე.  
-ნამუშევრის დასაარქივებლად გამოიყენეთ ```sh make archive``` ბრძანება და მიღებული hw-01.tar.gz ფაილი ატვირთეთ Google კლასრუმზე.
+ნამუშევრის დასაარქივებლად გამოიყენეთ `make archive` ბრძანება და მიღებული hw-01.tar.gz ფაილი ატვირთეთ Google კლასრუმზე.
 
-## setup
-0. install valgrind
+## სამუშაო გარემო
+თქვენი ნამუშევარი შემოწმდება კორექტულად იყენებს თუ არა მეხსიერებას.  
+ამისთვის გამოვიყენებთ დამხმარე *valgrind* აპლიკაციას, რომლის დაყენებაც დაგჭირდებათ თქვენს მანქანაზე.
 ### Ubuntu
 ```sh
 sudo apt-get install valgrind
 ```
-
 ### Arch
 ```sh
 yay -S valgrind
 ```
 
-1. build: `make`
+## კომპილაცია
+```sh
+make
+```
 
-2. run: `./rsg data/bionic.g`
+## ერთ ტესტზე შემოწმება
+```sh
+./rsg data/bionic.g
+```
 
-3. test
-**გაითვალისწინეთ, რომ ტესტერებისთვის სასვენი ნიშნების წინ აუცილებელია იყოს `space`**
+## მეხსიერებაზე შემოწმება
 ```sh
 ./rsgChecker32 ./rsg data/bionic.g
 ./rsgChecker64 ./rsg data/bionic.g
 ```
 
-4. test all
+## ყველა ტესტზე შემოწმება
 ```sh
-for i in $(/bin/ls data); do
-	echo $i
-	./rsgChecker64 ./rsg data/$i
-done
-```
-
-one line
-```sh
-for i in $(/bin/ls data); do echo $i; ./rsgChecker64 ./rsg data/$i; done
+make test_all
 ```

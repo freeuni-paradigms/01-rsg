@@ -36,6 +36,12 @@ clean :
 TAGS : $(SRCS) $(HDRS)
 	etags -t $(SRCS) $(HDRS)
 
+test_all: $(PROGS)
+	for test_file in $(shell ls data); do \
+		echo "!!!!! Testing on $$test_file:"; \
+		./rsgChecker64 ./rsg data/$$test_file; \
+	done
+
 archive:
 	tar cvzf hw-01.tar.gz \
 		"--exclude=.git/*" \
