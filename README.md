@@ -1,26 +1,18 @@
-﻿არ დაგავიწყდეთ, რომ ტერმინალში შეყვანილ ბრძანებებში ნავიგაცია შესაძლებელია up/down arrow key-ებით.
-
-
-## დავალების ატვირთვა
-### ავტომატურად
-დააინსტალირეთ პროგრამა zip
-გაუშვით ბრძანება `sh zip.sh` დავალების დირექტორიაში. შეიყვანეთ მეილის აიდი (შემდეგი დავალებისთვის დაიმახსოვრებს^^ თუ არასწორად შეიყვანთ, შეცვალეთ ფაილში `~/.config/paradigms`. 
-
-### manual
-- დაზიპეთ ფაილი `rsg.cc`. **აუცილებელია იყოს `.zip` და არა rar**. დაზიპეთ **მხოლოდ** ეს ფაილი და არა დირექტორია
-- დაარქვით ზიპს თქვენი მეილის id
+﻿## დავალების ატვირთვა
+პირველ რიგში ცადეთ ცვლილებები დააკომიტოთ Github-ზე თქვენი კლასრუმის რეპოზიტორიაში.  
+მაგრამ რადგან ჯერ git-ის გამოყენებაში არ ხართ გაწაფული, შეგიძლიათ პირველი დავალება ატვირთოთ Google კლასრუმზე.  
+ნამუშევრის დასაარქივებლად გამოიყენეთ ```sh make archive``` ბრძანება და მიღებული hw-01.tar.gz ფაილი ატვირთეთ Google კლასრუმზე.
 
 ## setup
 0. install valgrind
+### Ubuntu
 ```sh
-sudo apt-get install valgrind #ubuntu
-yay -S valgrind #arch
+sudo apt-get install valgrind
 ```
 
-change script permissions
+### Arch
 ```sh
-chmod u+x rsgChecker*
-chmod u+x rsg-sample*
+yay -S valgrind
 ```
 
 1. build: `make`
@@ -46,10 +38,3 @@ one line
 ```sh
 for i in $(/bin/ls data); do echo $i; ./rsgChecker64 ./rsg data/$i; done
 ```
-
-## ქულა
-```sh
-for i in $(/bin/ls data); do echo $i; ./rsgChecker64 ./rsg data/$i; done >> output.txt
-cat output.txt | grep "SUCCESSFULY" | wc -l
-```
-

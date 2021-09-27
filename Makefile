@@ -5,7 +5,7 @@
 CPPFLAGS = -g -Wall
 
 CXX = g++
-LDFLAGS = 
+LDFLAGS =
 
 CLASS = random.cc production.cc definition.cc
 CLASS_H = $(SRCS:.cc=.h)
@@ -13,10 +13,10 @@ SRCS = rsg.cc $(CLASS)
 OBJS = $(SRCS:.cc=.o)
 PROGS = rsg
 
-default : $(PROGS) 
+default : $(PROGS)
 
 $(PROGS) : depend $(OBJS)
-	$(CXX) -o $@ $(OBJS)   $(LDFLAGS) 
+	$(CXX) -o $@ $(OBJS)   $(LDFLAGS)
 
 # The dependencies below make use of make's default rules,
 # under which a .o automatically depends on its .c and
@@ -30,8 +30,26 @@ Makefile.dependencies:: $(SRCS) $(HDRS)
 
 -include Makefile.dependencies
 
-clean : 
+clean :
 	/bin/rm -f *.o a.out core $(PROGS) Makefile.dependencies vgcore.*
 
 TAGS : $(SRCS) $(HDRS)
 	etags -t $(SRCS) $(HDRS)
+
+archive:
+	tar cvzf hw-01.tar.gz \
+		"--exclude=.git/*" \
+		"--exclude=data/*" \
+		"--exclude=*.pdf" \
+		"--exclude=*.md" \
+		"--exclude=Makefile.dependencies" \
+		"--exclude=*.o" \
+		"--exclude=*.out" \
+		"--exclude=rsg" \
+		"--exclude=rsg-sample-*" \
+		"--exclude=rsgChecker*" \
+		"--exclude=*.gz" \
+		"--exclude=*.zip" \
+		"--exclude=*.rar" \
+		.; \
+	echo "Please try to commit changes in you personal Github repository. If that does not work upload hw-01.tar.gz file via the Google Classroom web interface."
